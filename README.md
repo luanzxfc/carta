@@ -22,3 +22,6 @@ be found at <https://hexdocs.pm/carta>.
 Comando pra rodar o app na memoria
 iex -S mix
 
+Rodar script com programa na memoria
+mix run script.exs
+
