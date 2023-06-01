@@ -8,6 +8,7 @@ defmodule Carta do
     IO.puts("Digite a opçao desejada")
     IO.puts("[1] Inserir um novo card")
     IO.puts("[2] Mostrar as cartas")
+    IO.puts("[3] Procurar carta")
 
     IO.puts("[4] Sair")
 
@@ -24,11 +25,15 @@ defmodule Carta do
         show(memory)
         entry_loop(memory)
 
+      "3" ->
+        find(memory)
+        entry_loop(memory)
+
       "4" ->
         IO.puts("Tchau")
 
-      _any ->
-        IO.puts("Opçao invalida digite de novo")
+      any ->
+        IO.puts("voce digitou isto: #{any}. Opçao invalida digite de novo")
         entry_loop(memory)
     end
   end
@@ -49,5 +54,18 @@ defmodule Carta do
 
   def show(memory) do
     dbg(memory)
+  end
+
+  def find(memory) do
+    IO.puts "O que voce deseja procurar?"
+    text = get()
+
+    Enum.each(memory, fn card ->
+      if String.contains?(card.portugues, text) or String.contains?(card.ingles, text) do
+        IO.puts("Encontrado")
+      else
+        IO.puts("Nao achei")
+      end
+    end)
   end
 end
