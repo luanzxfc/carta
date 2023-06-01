@@ -1,1 +1,2 @@
-Carta.entry_loop()
+memory = []
+Carta.entry_loop(memory)
